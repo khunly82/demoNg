@@ -1,0 +1,11 @@
+@if(control && control.invalid && control.errors && (control.touched || control.dirty) && control.enabled) {
+    @if(control.getError('required')) {
+        <p>Le champs est requis</p>
+    }
+    @if(control.getError('maxlength')) {
+        <p>Trop grand ({{ control.getError('maxlength').actualLength }}/{{ control.getError('maxlength').requiredLength }})</p>
+    }
+    @if(control.getError('exist')) {
+        <p>Ce(t) {{ control.getError('exist').fieldName }} est déjà utilisé</p>
+    }
+}
